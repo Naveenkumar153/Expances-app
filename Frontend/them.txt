@@ -1,0 +1,184 @@
+// change theme color
+
+
+theme.scss
+
+@use '@angular/material' as mat;
+// @include mat.core();
+@import './_colors';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* ======== Angular material custom themes ======== */ 
+$app-primary:mat.define-palette($custom-brand-primary);
+$app-accent:mat.define-palette($custom-brand-accent);
+$app-warn:mat.define-palette($custom-brand-warn);
+$brand-light-theme: mat.define-light-theme($app-primary, $app-accent, $app-warn);
+
+
+// $custom-theme: mat.define-light-theme((typography: $custom-typography));
+
+$custom-typography: mat.define-typography-config($font-family:'"Poppins",sans-serif');
+
+
+@include mat.core($custom-typography);
+
+$my-app-theme: mat.define-light-theme((
+  color: (
+    primary: $app-primary,
+    accent: $app-accent,
+    warn: $app-warn,
+  ),
+  typography: $my-typography
+));
+
+
+@include mat.all-component-themes($my-app-theme);
+
+
+
+// $typography-config: mat.define-typography-config(
+//   $font-family: '"Poppins", sans-serif',
+//   $headline-1: mat.define-typography-level(112px, 112px, 300, $letter-spacing: -0.05em),
+//   $headline-2: mat.define-typography-level(56px, 56px, 400, $letter-spacing: -0.02em),
+//   $headline-3: mat.define-typography-level(45px, 48px, 400, $letter-spacing: -0.005em),
+//   $headline-4: mat.define-typography-level(34px, 40px, 400),
+//   $headline-5: mat.define-typography-level(24px, 32px, 400),
+//   $headline-6: mat.define-typography-level(20px, 32px, 400),
+//   $subtitle-1: mat.define-typography-level(16px, 28px, 400),
+//   $body-1: mat.define-typography-level(14px, 20px, 400),
+//   $body-2: mat.define-typography-level(14px, 20px, 400),
+//   $subtitle-2: mat.define-typography-level(16px, 28px, 400),
+//   $caption: mat.define-typography-level(12px, 20px, 400),
+//   $button: mat.define-typography-level(14px, 14px, 500),
+// );
+
+
+// import above file theme file into the style file
+@import './app/theme.scss';
+
+
+// color codes
+$black: #363637;
+$white: #F5F5F4;
+$custom-primary: #689F38;
+$custom-accent: #CDDC39;
+$custom-warn: #ff5722;
+
+$custom-brand-primary: (
+  50: 'e3e7e6',
+  100: 'b9c2c0',
+  200: '8a9a96',
+  300: '5b726c',
+  400: '38534d',
+  500: '15352d',
+  600: '123028',
+  700: '0f2822',
+  800: '0c221c',
+  900: '061611',
+  A100: '57ffbb',
+  A200: '24ffa6',
+  A400: '00f08e',
+  A700: '00d67f',
+  contrast: (
+    50: $black,
+    100: $black,
+    200: $black,
+    300: $black,
+    400: $white,
+    500: $white,
+    600: $white,
+    700: $white,
+    800: $white,
+    900: $white
+  )
+);
+
+$custom-brand-accent: (
+  50: '#f9fbe7',
+  100: '#f0f5c4',
+  200: '#e6ee9c',
+  300: '#dce774',
+  400: '#d5e157',
+  500: $custom-accent,
+  600: '#c8d833',
+  700: '#c1d32c',
+  800: '#bace24',
+  900: '#aec517',
+  contrast: (
+    50: $black,
+    100: $black,
+    200: $black,
+    300: $white,
+    400: $white,
+    500: $white,
+    600: $white,
+    700: $white,
+    800: $white,
+    900: $white
+  )
+);
+
+$custom-brand-warn: (
+  50: #fbe9e7,
+  100: #ffccbc,
+  200: #ffab91,
+  300: #ff8965,
+  400: #ff6f43,
+  500: $custom-warn,
+  600: #f4501e,
+  700: #e64919,
+  800: #d84215,
+  900: #bf350c,
+  contrast: (
+    50: $black,
+    100: $black,
+    200: $black,
+    300: $black,
+    400: $black,
+    500: $white,
+    600: $white,
+    700: $white,
+    800: $white,
+    900: $white
+  )
+);
+
+
+
+// see http://mcg.mbitson.com
+
+// $dark-primary-text: rgba(black, 0.87);
+// $light-primary-text: white;
+
+// $wfs-blue-palette: (
+//   50: #eaeef3,
+//   100: #cad6e0,
+//   200: #a7bacc,
+//   300: #849eb7,
+//   400: #698aa7,
+//   500: #4f7598,
+//   600: #486d90,
+//   700: #3f6285,
+//   800: #36587b,
+//   900: #26456a,
+//   A100: #add1ff,
+//   A200: #7ab5ff,
+//   A400: #4798ff,
+//   A700: #2e8aff,
+//   contrast: (
+//     50: $dark-primary-text,
+//     100: $dark-primary-text,
+//     200: $dark-primary-text,
+//     300: $dark-primary-text,
+//     400: $dark-primary-text,
+//     500: $light-primary-text,
+//     600: $light-primary-text,
+//     700: $light-primary-text,
+//     800: $light-primary-text,
+//     900: $light-primary-text,
+//     A100: $dark-primary-text,
+//     A200: $dark-primary-text,
+//     A400: $dark-primary-text,
+//     A700: $light-primary-text,
+//   )
+// );
