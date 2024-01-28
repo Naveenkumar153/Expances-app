@@ -1,0 +1,35 @@
+<div class="container-fluid">
+    <div class="row">
+        <h2 class="px-0 py-0">Overview</h2>
+    </div>
+    <div class="row">
+        <div class="col-8">
+            <div class="container-fluid">
+                <div class="row">
+                    @for (item of TotalExpances; track $index) {
+                        <div class="col-4">
+                            <mat-card class="cards">
+                                <mat-card-header class="cards-header">
+                                    <mat-card-title class="title">{{ item.title }}</mat-card-title>
+                                    <div class="icon-background">
+                                        <mat-icon class="icon">{{ item.icons }}</mat-icon>
+                                    </div>
+                                    <mat-card-subtitle class="sub-title">{{ item.date }}</mat-card-subtitle>
+                                </mat-card-header>
+                                <mat-card-content>
+                                  <div class="cards-content">
+                                   <span class="currency">{{ item.symbol }}</span>
+                                    <span class="value">{{ item.amount }}</span>
+                                  </div>
+                                </mat-card-content>
+                            </mat-card>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            data-4
+        </div>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+.title{
+    margin: 0;
+    padding: 0;
+}
+
+.cards{
+    .cards-header{
+        position: relative;
+        .title{
+            width: 100%;
+        }
+        .icon-background{
+            background-color: var(--expance-color-5);
+            position: absolute;
+            right: 10px;
+            top: 20px;
+            border-radius: 5px;
+            padding: 5px 5px 2px;
+            color: var(--white-color);
+        }
+        .sub-title{
+            font-size: 13px;
+        }
+    }
+    .cards-content{
+        margin: 20px 0px;
+        .currency{
+            font-size: 1.2rem;
+        }
+        .value{
+            font-size: 2rem;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+    }
+}
