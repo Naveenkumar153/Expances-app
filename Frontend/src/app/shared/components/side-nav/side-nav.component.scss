@@ -1,0 +1,82 @@
+mat-sidenav-container {
+    height: 100vh;
+  }
+
+.mat-mdc-icon-button.mat-mdc-button-base{
+  padding: 15px;
+}
+
+.expanded {
+  width: 250px;   
+}
+
+.mat-nav-list{
+  position: relative;
+  height: 80%;
+}
+
+.list-items{
+  margin: 10px auto;
+  .list-item {
+    display: flex;
+    align-items: center;
+
+    mat-icon{
+      color: var(--pure-white-color);
+    }
+
+    span{
+      padding-left: 5px;
+      color: var(--pure-white-color);
+    }
+  }
+}
+.logout{
+  margin: 10px auto;
+  position: absolute;
+  bottom: 10%;
+  .logout_icon{
+    transform: rotate(90deg);
+  }
+  .list-item {
+    display: flex;
+    align-items: center;
+    mat-icon{
+      color: var(--pure-white-color);
+    }
+    span{
+      color: var(--pure-white-color);
+      padding-left: 5px;
+    }
+  }
+}
+
+
+  mat-sidenav {
+    // padding-top: 3.5rem;
+    color: var(--pure-white-color);
+    background: var(--sidenav-color);
+    @media screen and (min-width: 600px) {
+      padding-top: 4rem;
+    }
+
+    .entry{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding:0.75rem;
+    }
+  }
+
+// Move the content down so that it won't be hidden by the toolbar
+mat-sidenav-content{
+    padding: 2rem;
+    // padding-top: 3.5rem;
+    // @media screen and (min-width: 600px) {
+    //     padding-top: 4rem;
+    // }
+}
+
+.router-link-active{
+  background-color: var(--active-link-color);
+}

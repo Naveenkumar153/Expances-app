@@ -1,0 +1,31 @@
+<mat-sidenav-container class="example-container" [autosize]="true">
+    <!-- Side Nav -->
+    <mat-sidenav #sidenav  [opened]="true" class="sidenav" [mode]="'side'" [opened]="true"  >
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="toggleMenu()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <mat-nav-list class="mat-nav-list">
+        @for (item of sideNav; track item.id) {
+            <a mat-list-item [ngClass]="item.className === 'logout' ? 'logout' : 'list-items'"
+               [routerLink]="[item.routerLink]" routerLinkActive="router-link-active" >
+                <div class="list-item">
+                    <mat-icon class="logout_icon">{{ item.icon }}</mat-icon>
+                    @if (!isCollapsed) {
+                        <span>{{ item.name }}</span> 
+                    }
+                </div>
+            </a>
+        }
+      </mat-nav-list>
+    </mat-sidenav>
+  
+    <mat-sidenav-content>
+      <header>
+        <app-header></app-header>
+      </header>
+      <main>
+        <router-outlet></router-outlet>
+      </main>
+    </mat-sidenav-content>
+
+  </mat-sidenav-container>

@@ -1,17 +1,21 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ANGULAR_MATERIAL_COMPONENTS } from './material.componets';
+import { SideNavComponent } from './shared/components/side-nav/side-nav.component';
+import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
+    CommonModule,
     RouterOutlet,
-    ANGULAR_MATERIAL_COMPONENTS
+    SideNavComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'Frontend';
+  
 }
