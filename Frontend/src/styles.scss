@@ -1,6 +1,31 @@
 
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+:root{
+    --active-link-color:#0C654E;
+    --sidenav-color:#0e7359;
+    --white-color:#f9f9f9;
+    --pure-white-color:#fff;
+    --expance-color-0:#c31f1d;
+    --expance-color-1:#89D69B;
+    --expance-color-2:#EE9C48;
+    --expance-color-3:#F37761;
+    --expance-color-4:#EC7093;
+    --expance-color-5:#2FBCA9;
+    --expance-color-6:#607EBA;
+    --expance-color-7:#BD8DC2;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
 
 // @import "./assets/css/bootstraplayout.css";
 // @import "scss/main";
