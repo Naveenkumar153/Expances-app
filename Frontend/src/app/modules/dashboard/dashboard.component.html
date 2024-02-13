@@ -3,8 +3,8 @@
         <h2 class="px-0 py-0">Overview</h2>
     </div>
     <div class="row">
-        <div class="col-8">
-            <div class="container-fluid">
+        <div class="col-7">
+            <div class="container-fluid overview">
                 <div class="row">
                     @for (item of TotalExpances; track $index) {
                         <div class="col-4">
@@ -28,8 +28,19 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-4">
-            data-4
+        <div class="col-5">
+           <div class="chart-container">
+                <canvas 
+                    baseChart
+                    class="dought-chart"
+                    [data]="doughnutChartData"
+                    [type]="doughnutChartType"
+                    [options]="chartOptions"
+                >
+                 </canvas>       
+            </div>
         </div>
+    </div>
+    <div class="row">
     </div>
 </div>
