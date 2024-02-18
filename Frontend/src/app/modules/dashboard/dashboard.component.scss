@@ -1,47 +1,128 @@
 
 ::ng-deep app-dashboard {
-    .title{
-        margin: 0;
-        padding: 0;
-    }
-    .chart-container{
-        background-color: #fff;
-    }
-    .cards{
-        .cards-header{
-            position: relative;
+
+    .expances{
+        height: 100vh;
+        .expances-overview{
+            width: 800px;
+            height: 240px;
+            .expances-overview__container{
+                width: 100% !important;
+                .cards{
+                    .cards-header{
+                        position: relative;
+                        .title{
+                            width: 100%;
+                        }
+                        .icon-background{
+                            background-color: var(--expance-color-5);
+                            position: absolute;
+                            right: 10px;
+                            top: 20px;
+                            border-radius: 5px;
+                            padding: 5px 5px 2px;
+                            color: var(--white-color);
+                        }
+                        .sub-title{
+                            font-size: 13px;
+                        }
+                    }
+                    .cards-content{
+                        margin: 20px 0px;
+                        .currency{
+                            font-size: 1.2rem;
+                        }
+                        .value{
+                            font-size: 2rem;
+                            font-weight: bold;
+                            margin-left: 10px;
+                        }
+                    }
+                }
+            }
             .title{
-                width: 100%;
-            }
-            .icon-background{
-                background-color: var(--expance-color-5);
-                position: absolute;
-                right: 10px;
-                top: 20px;
-                border-radius: 5px;
-                padding: 5px 5px 2px;
-                color: var(--white-color);
-            }
-            .sub-title{
-                font-size: 13px;
+                margin: 0;
+                padding: 0;
             }
         }
-        .cards-content{
-            margin: 20px 0px;
-            .currency{
-                font-size: 1.2rem;
+
+        .expances-chart{
+            width: 600px;
+            .expances-chart__container{
+                .chart-container{
+                    background-color: #fff;
+                    // .donut-inner {
+                    //     margin-top: -100px;
+                    //     margin-bottom: 100px;
+                    //  }
+                    //  .donut-inner h5 {
+                    //     margin-bottom: 5px;
+                    //     margin-top: 0;
+                    //  }
+                    //  .donut-inner span {
+                    //     font-size: 12px;
+                    //  }
+                    float: left; position: relative;
+                    width: 100%;
+                }
+                .dought-chart{
+                    height: 300px;
+                    width: 447px;
+                    padding: 20px;
+                }
             }
-            .value{
-                font-size: 2rem;
-                font-weight: bold;
-                margin-left: 10px;
+            .expances-chart__activities{
+                .virtual-scroll{
+                    height: 200px;
+                    width: 100%;
+                    // border: 1px solid black;
+                    overflow-y: scroll;
+                    .virtual-scroll__viewport{
+                        height: 200px;
+                    }
+                    .virtual-scroll__table{
+                        height: 200px;
+                    }
+                }
             }
         }
+
+        .expances-barchart{
+            width: 800px;
+            .expances-barchart__container{
+                width: 100% !important;
+            }
+        }
+
+        .expances-budget{
+            width: 600px;
+            .expances-budget__container{
+
+            }
+        }
+
+        
     }
     
-    .dought-chart{
-        height: 300px;
-        width: 447px;
-        padding: 20px;
-    }
+    
+
+    // .donut-inner{
+    //     width: 100px;
+    //     height: 40px;
+    //     position: absolute;
+    //     top: 48%;
+    //     left: 27%;
+    //     margin-top: -20px;
+    //     line-height: 19px;
+    //     z-index: 100;
+    //     font-size: 15px;
+    //     span{
+    //         left: 18px;
+    //         position: relative;
+    //     }
+    //     h3{
+    //         margin: 0;
+    //     }
+    // }
+
 }

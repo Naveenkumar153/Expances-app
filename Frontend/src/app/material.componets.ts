@@ -31,6 +31,13 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+
+
+
 
 export const ANGULAR_MATERIAL_COMPONENTS = [
   CdkTreeModule,
@@ -65,4 +72,27 @@ export const ANGULAR_MATERIAL_COMPONENTS = [
   MatRadioModule,
   MatDatepickerModule,
   MatTooltipModule
-]
+];
+
+export const MatFormModules = [
+  MatSelectModule,
+];
+
+export const CommonModules = [
+  CommonModule,
+];
+
+export const AngularFormsModules = [
+  FormsModule,
+  ReactiveFormsModule,
+];
+
+export const AngularRouterModules = [
+  RouterModule,
+];
+
+export const AngularHttpModules = [
+  HttpClientModule,
+];
+
+

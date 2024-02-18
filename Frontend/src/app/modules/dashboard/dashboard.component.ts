@@ -1,80 +1,104 @@
-import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
-import { TotalExpances } from '@app/core/models/common.model';
-import { ChartData, ChartEvent, ChartOptions, ChartType,} from 'chart.js';
-import { NgChartsModule } from 'ng2-charts';
+import { ChartInterface, DateRangeGroup, TotalExpances } from '@app/core/models/common.model';
+import { ChartData, ChartEvent, ChartOptions, ChartType, Tooltip,} from 'chart.js';
+import { NgChartsModule, BaseChartDirective } from 'ng2-charts';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { FormControl } from '@angular/forms';
+import { AngularFormsModules, CommonModules } from '@app/material.componets';
+import { DoughnutChartComponent } from '@app/shared/components/doughnut-chart/doughnut-chart.component';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { Activitie } from '@app/shared/Recent-activites';
+import { MatTableModule } from '@angular/material/table';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
   imports: [
-    CommonModule,
+    CommonModules,
     MatCardModule,
     MatIconModule,
     NgChartsModule,
+    MatFormFieldModule,
+    MatSelectModule, 
+    MatInputModule,
+    AngularFormsModules,
+    DoughnutChartComponent,
+    ScrollingModule,
+    MatTableModule
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
+
 export class DashboardComponent implements OnInit{
 
-  public chart:any;
-  public doughnutChartType: ChartType = 'doughnut';
-  public doughnutChartLabels: string[] = [
-    `Technology $${ 10000 }`,
-    `Teaching Tools  $${ 5000 }`,
-    `Equipments $${ 6000 }`,
-    `Subscriptions $${ 7000 }`,
-    `Tranings $${ 3000 }`,
-    `Support Services $${ 4000 }`,
-    `Health $${ 1020 }`,
-    `Facilities $${ 5000 }`,
-    `Others $${ 9000 }`,
-  ];
-  public doughnutChartData: ChartData<'doughnut', number[]> = {
-    labels: this.doughnutChartLabels,
-    datasets: [
-      { 
-        data: [10000, 5000, 6000,7000,3000,4000,1020,5000,9000],
-        backgroundColor:[
-          'rgb(255, 99, 132)', 
-          'rgb(54, 162, 235)', 
-          'rgb(255, 205, 86)',
-          // '#89D69B',
-          // '#EE9C48',
-          // '#F37761',
-          '#EC7093',
-          '#B060A1',
-          '#607EBA',
-          '#BD8DC2',
-          '#2FBCA9',
-          'rgb(195,31,29)',
-        ] 
-        
+  public chart: ChartInterface = {
+    type:'bar',
+    labels:[
+      '2006',
+      '2007',
+      '2008',
+      '2009',
+      '2010',
+      '2011',
+      '2012',
+    ],
+    options:{
+      elements: {
+        line: {
+          tension: 0.4,
+        },
       },
+      // We use these empty structures as placeholders for dynamic theming.
+      scales: {
+        x: {},
+        y: {
+          min: 10,
+        },
+      },
+      plugins: {
+        legend: { display: true },
+      },
+    }
+  };
+
+
+  @ViewChild(BaseChartDirective) chartDirective: BaseChartDirective | undefined;
+
+
+  public barChartData: ChartData<'bar'> = {
+    labels: this.chart.labels,
+    datasets: [
+      { data: [65, 59, 80, 81, 56, 55, 40], label: 'Expances' },
+      { data: [28, 48, 40, 19, 86, 27, 90], label: 'Savings' },
     ],
   };
-  public chartOptions: ChartOptions = {
-    // resizeDelay: 1,
-    // responsive: true,
-    plugins:{
-      legend:{ position:'right' },
-    },
-    maintainAspectRatio: false,
-    layout:{
-      padding:2
-    }
-  }
-  // events
-  public chartClicked({ event, active, }: { event: ChartEvent; active: object[]; }): void {
-    console.log(event, active);
-  }
 
-  public chartHovered({ event,active, }: { event: ChartEvent; active: object[]; }): void {
-    console.log(event, active);
-  }
+  MonthControl = new FormControl('');
+
+  DateRange: DateRangeGroup[] = [
+    {
+      Year:'Year-2024',
+      Month:[
+        { value: 1, RangeValue: 'Jan' },
+        { value: 2, RangeValue: 'Feb' },
+        { value: 3, RangeValue: 'Mar' },
+        { value: 4, RangeValue: 'Apr' },
+        { value: 5, RangeValue: 'May' },
+        { value: 6, RangeValue: 'June' },
+        { value: 7, RangeValue: 'July' },
+        { value: 8, RangeValue: 'Aug' },
+        { value: 9, RangeValue: 'Sep' },
+        { value: 10, RangeValue: 'Oct' },
+        { value: 11, RangeValue: 'Nov' },
+        { value: 12, RangeValue: 'Dec' },
+      ],
+    },
+  ];
 
 
   TotalExpances: TotalExpances[] = [
@@ -101,12 +125,16 @@ export class DashboardComponent implements OnInit{
     },
   ];
 
+  dataSource = Activitie;
+  displayedColumns: string[] = ['Merchant', 'Amount', 'Date'];
+
   constructor(){
 
   }
   
 
   ngOnInit(): void {
+
   }
 
 }
